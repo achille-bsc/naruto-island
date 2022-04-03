@@ -12,7 +12,7 @@ module.exports = {
 		console.log('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n'.bold.green);
 
 		// Instantané
-		const devGuild = await client.guilds.cache.get('841813630172790834');
+		const devGuild = await client.guilds.cache.get('957566891893878784');
 		devGuild.commands.set(client.commands.map(cmd => cmd));
 		
 		// Global => 1H minimum
@@ -25,10 +25,10 @@ module.exports = {
 		const statuses = [
 			'ses engrenages...',
 			'Un bon film.',
-			'/help et !help',
+			'/help',
 			'derrière toi',
 			`la version V.${package.version}`,
-			'Karma Akabane#6802',
+			'Achille',
 		];
 		setInterval(() => {
 			client.user.setActivity(statuses[i], {

@@ -12,7 +12,6 @@ const Logger = require('./utils/logger')
 
 const X = ['commands', 'buttons', 'selects']
 const handlers = ['EventUtil', 'CommandUtil', 'ButtonUtil', 'SelectUtil']
-require('./utils/Functions')(client)
 
 X.forEach(x =>  {
 	client[x] = new Collection();
@@ -34,24 +33,24 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 process.on('warning', (...args) => { Logger.warn(...args) })
 
-mongoose.connect(process.env.DATABASE_URI, {
-	autoIndex: false, 
-	maxPoolSize: 10, 
-	serverSelectionTimeoutMS: 5000, 
-	socketTimeoutMS: 45000,
-	family: 4
-}).then (() => { 
-	console.log(`┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                                      ┃
-┃     Le client est connecté à la base de donnée !     ┃
-┃                                                      ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n`.bold.magenta);
-	console.log(`┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                ┃
-┃     Chargement en Cours...     ┃
-┃                                ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n`.bold.yellow);
-})
-.catch (err => { console.log(`${err}`.bold.red) })
+// mongoose.connect(process.env.DATABASE_URI, {
+// 	autoIndex: false, 
+// 	maxPoolSize: 10, 
+// 	serverSelectionTimeoutMS: 5000, 
+// 	socketTimeoutMS: 45000,
+// 	family: 4
+// }).then (() => { 
+// 	console.log(`┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+// ┃                                                      ┃
+// ┃     Le client est connecté à la base de donnée !     ┃
+// ┃                                                      ┃
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n`.bold.magenta);
+// 	console.log(`┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+// ┃                                ┃
+// ┃     Chargement en Cours...     ┃
+// ┃                                ┃
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n`.bold.yellow);
+// })
+// .catch (err => { console.log(`${err}`.bold.red) })
 
-client.login(process.env.TEST)
+client.login(process.env.TOKEN)
